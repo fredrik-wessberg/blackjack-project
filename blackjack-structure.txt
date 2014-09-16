@@ -9,8 +9,8 @@ Comments:
 Functions:
 
 Pre-game functionality:
-	deckofcards()
-	shuffledeck()
+	deckofcards() -> Jimmys task
+	shuffledeck() -> Fredriks task
 	dealerhand()
 	userhand() -> display "value"
 	dealerAI()	
