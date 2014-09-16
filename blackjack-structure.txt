@@ -1,0 +1,27 @@
+-- Blackjack Card game ---
+Creators: Jimmy Mitra, Fredrik Wessberg
+
+Comments:
+	Shuffle cards one time during execution.
+	User chooses amount of decks (6-8)
+
+
+Functions:
+
+Pre-game functionality:
+	deckofcards()
+	shuffledeck()
+	dealerhand()
+	userhand() -> display "value"
+	dealerAI()	
+
+In-game functionality:
+	placebets()
+	credit()
+	splitcards()
+	double()
+	card_value()
+
+Objects:
+	dealer
+	user
