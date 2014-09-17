@@ -2,10 +2,10 @@
 console.log("Welcome to this explicitly nice version of blackjack the card game");
 var playerName prompt("What is your name:");
 
-console.log("How many decs would you like to use (4-8)"):
+console.log("How many decs would you like to use (4-8):");
 var amountOfDecks = prompt("Use values between 4-8");
 
-// creating a "base" deck which is used to genereate the amount of decks user asked later.
+// creating a "base" deck which is used to genereate the amount of decks used later.
 var baseDeck = [];
 
 // Hearts
