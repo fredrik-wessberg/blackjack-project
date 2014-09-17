@@ -62,15 +62,10 @@ baseDeck.push("12 of Spades");
 baseDeck.push("13 of Spades");
 baseDeck.push("14 of Spades");
 
-var playerName = prompt("What is your name:");
 
-var amountOfDecks = prompt("Hi " + playerName + " how many decs would you like to play with:");
-
-// Copy deck into activeDeck
-var activeDeck = [
-	[]
-];
-activeDeck = baseDeck * amountOfDecks;
-console.log(activeDeck);
-
-// creating a "base" deck which is used to genereate the amount of decks user asked later.
+// create new shuffled deck
+var newDeck = [[]];
+//newDeck = _.shuffle(baseDeck);
+newDeck.push(_.shuffle(baseDeck)); // This creates an array of 1 array -> 
+								   // newDeck[0] contains the whole deck (52 cards). newDeck[0][0] one specific card and newDeck[0][0][0] : the first letter, in the first card in the first deck
+								   

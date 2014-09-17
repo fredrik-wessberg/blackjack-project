@@ -33,13 +33,14 @@ Comments:
 Functions:
 
 Pre-game functionality:
-	deckofcards() -> Jimmys task
+	deckofcards() -> Done
 	
-	shuffledeck() ->
-		Make x copies of baseDeck (based on x user choice). For each deck we want to avoid duplicating the same card twice. randomize card -> newDeck, pop randomizeCard from origin.
+	shuffledeck() -> Parly completed:
+					 shuffling with newDeck.push(_.shuffle(baseDeck));
+		
 	
 
-	dealerhand()
+	dealerhand()	
 	userhand() -> display "value"
 	dealerAI()	
 
