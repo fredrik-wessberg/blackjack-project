@@ -1,27 +1,60 @@
 -- Blackjack Card game ---
 Creators: Jimmy Mitra, Fredrik Wessberg
 
+
+Rules of Black Jack:
+ 
+	dealer starts dealing 2 cards to player and 1 card to dealer
+	score over 21 is a bust.
+	Ace and any of this card gives black Jack
+	:10, jack, queen,king.
+	Ace counts as 1 and or 11.
+	if draw dealer wins.
+
+
+	Dealer:
+		Must draw new card under 17
+		and must stop 17 or over
+
+
+	Player:
+		if players 2-card value addup to 7,8,9,10 or 11 the player has to option to dubble his bet, but this will mean that the player only get ONE more card.
+		if the player get two of a kind he has the option to split those card 
+		and play a "two-hand game".
+
+
+
 Comments:
 	Shuffle cards one time during execution.
 	User chooses amount of decks (6-8)
 
 
+
 Functions:
 
 Pre-game functionality:
-	deckofcards() -> Jimmys task
-	shuffledeck() -> Fredriks task
-	dealerhand()
-	userhand() -> display "value"
-	dealerAI()	
+	deckofcards() -> Done
+	
+	shuffledeck() -> Partly completed:
+					 shuffling with newDeck.push(_.shuffle(baseDeck));
+		
+	
+	drawCard() -> Both dealer and user uses this function. My suggestion is that we can, out of the x arrays created, pick a card with a randomized number since the decks we've created are shuffled "on top of eachother".
+	
+	userhand() -> display value. Make decisions based on rules -> in-game functionality
+	
+	dealerAI() -> display card. Make decisions based on rules -> in-game functionality
 
 In-game functionality:
 	placebets()
 	credit()
 	splitcards()
 	double()
-	card_value()
+	card_value() -> needs further explaination, can't recall specifics.
 
 Objects:
 	dealer
 	user
+
+Fredrik - 0700 2014-09-17:
+	Added baseDeck - an array of size 52 with each card in it.
