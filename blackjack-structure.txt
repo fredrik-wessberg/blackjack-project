@@ -10,7 +10,11 @@ Functions:
 
 Pre-game functionality:
 	deckofcards() -> Jimmys task
-	shuffledeck() -> Fredriks task
+	
+	shuffledeck() ->
+		Make x copies of baseDeck (based on x user choice). For each deck we want to avoid duplicating the same card twice. randomize card -> newDeck, pop randomizeCard from origin.
+	
+
 	dealerhand()
 	userhand() -> display "value"
 	dealerAI()	
@@ -25,3 +29,6 @@ In-game functionality:
 Objects:
 	dealer
 	user
+
+Fredrik - 0700 2014-09-17:
+	Added baseDeck - an array of size 52 with each card in it.
