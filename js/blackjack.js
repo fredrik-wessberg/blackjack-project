@@ -66,3 +66,9 @@ baseDeck.push("Jack of Spades");
 baseDeck.push("Queen of Spades");
 baseDeck.push("King of Spades");
 baseDeck.push("Ace of Spades");
+
+// Copy deck into activeDeck
+var activeDeck = [
+	[]
+];
+activeDeck = baseDeck;
