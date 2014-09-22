@@ -21,8 +21,13 @@ var table = function () {
 
 	console.log(playDeck);
 	console.log("Drawing cards for player....");
-	var card = pullCard(playDeck);
-	console.log("You got a " + card.name);
+
+	var playerCard = pullCard(playDeck);
+	var bankCard = pullCard(playDeck);
+
+	console.log("You got a " + playerCard.name);
+	console.log("Drawing card for the bank...");
+	console.log(bankCard.type);
 
 };
 
@@ -52,7 +57,8 @@ var shuffleDeck = function (shuffledDeck) {
 	return _.shuffle(shuffledDeck);
 };
 
+// If you look at the deck lying on a table, the last card placed on the deck would be the one
+// on top, and therefore pop is more realistic than shift :)
 var pullCard = function (playDeck) {
-	return playDeck.pop(); // If you look at the deck lying on a table, the last card placed would be the one
-	// on top, and therefore pop is more realistic than shift :)
+	return playDeck.pop();
 };
