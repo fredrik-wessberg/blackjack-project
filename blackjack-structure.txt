@@ -1,14 +1,39 @@
 -- Blackjack Card game ---
 Creators: Jimmy Mitra, Fredrik Wessberg
 
+
+Rules of Black Jack:
+ 
+	dealer starts dealing 2 cards to player and 1 card to dealer
+	score over 21 is a bust.
+	Ace and any of this card gives black Jack
+	:10, jack, queen,king.
+	Ace counts as 1 and or 11.
+	if draw dealer wins.
+
+
+	Dealer:
+		Must draw new card under 17
+		and must stop 17 or over
+
+
+	Player:
+		if players 2-card value addup to 7,8,9,10 or 11 the player has to option to dubble his bet, but this will mean that the player only get ONE more card.
+		if the player get two of a kind he has the option to split those card 
+		and play a "two-hand game".
+
+
+
 Comments:
 	Shuffle cards one time during execution.
 	User chooses amount of decks (6-8)
 
 
+
 Functions:
 
 Pre-game functionality:
+<<<<<<< HEAD
 	deckofcards() -> Jimmys task
 	
 	shuffledeck() ->
@@ -16,6 +41,16 @@ Pre-game functionality:
 	
 
 	dealerhand()
+=======
+	deckofcards() -> Done
+	
+	shuffledeck() -> Parly completed:
+					 shuffling with newDeck.push(_.shuffle(baseDeck));
+		
+	
+
+	dealerhand()	
+>>>>>>> master
 	userhand() -> display "value"
 	dealerAI()	
 
