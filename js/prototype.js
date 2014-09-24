@@ -24,7 +24,20 @@ var table = function () {
 	var card = pullCard(playDeck);
 	console.log("You got a " + card.name);
 
+
+
+	var playerHand = [];
+	playerHand.push(card);
+	console.log(playerHand);
+
+	// split = function (){
+
+	//    	// if the card has the same value
+	// 	var splitHand = [];
+	// 	splitHand.pop(card.playerHand);
+
 };
+
 
 
 // Function takes one argument and return an array-object containing x amount of decks

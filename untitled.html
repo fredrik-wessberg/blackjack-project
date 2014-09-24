@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>js test</title>
+<script >
+
+ 
+ var turn = 0;
+
+ var items = ['rock','scissors','paper'];
+ 
+ do {
+    
+
+ 
+ var userPick = prompt('rock ,scissors ,paper  ?');
+     userPick= userPick.trim();
+     userPick= userPick.toLowerCase();
+
+     if (items.indexOf(userPick) > -1) {
+     
+     	 var computerPick = items[Math.floor(Math.random()*items.length)];
+ 		 alert('CPU picked' + computerpick);
+ 
+
+		turn++;  
+
+     }
+     else {
+    alert('not correct pick');
+        }
+
+}
+
+
+
+
+
+while (turn < 10);
+
+
+
+
+
+
+//  var showResults = function () {
+// 	alert('you scored ' + points + 'you scored');
+// }
+
+// for (var i = 0; i < questions.length; i = i + 1) {
+// 	currentQuestion = questions[i];
+// 	answer = askQuestion(currentQuestion);
+// 	checkAnswer(answer, currentQuestion);
+// }
+
+// showResults();
+
+
+ //Math.floor(Math.random() *baseDeck.length), 2);
+
+ // switch (computerpick()){
+ // 	case [0] :
+ // 	computerpick= 'rock';
+ // 	break;
+ // 	case [1]:
+ // 	computerpick='scissors';
+ // 	break;
+ // 	case[2]:
+ // 	computerpick='paper';
+ // 	break;
+
+ 
+
+  
+
+
+
+
+alert('u picked '+userPick);
+
+
+
+
+
+
+  
+
+
+
+
+
+</script>
+
+
+
+
+</head>
+
+<body>
+The content of the document......
+</body>
+
+</html>
