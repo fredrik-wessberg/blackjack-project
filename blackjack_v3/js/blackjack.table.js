@@ -1,33 +1,19 @@
-blackJack.table = {};
-blackJack.table.display = function() {
-	
-	console.log("Welcome to the blackJack table!")
-	blackJack.table.amountOfDecks = prompt("How many decks would you like to play with: ");
-	blackJack.table.amountOfDecks.trim();
-	blackJack.table.amountOfDecks =parseInt(blackJack.table.amountOfDecks);
-	blackJack.table.playerDeck = blackJack.deckFactory(blackJack.table.amountOfDecks); // Get shuffled decks
+'use strict';
+blackJack.gameTable = {};
+// Shows greeting message and does the graphical presentation for the user
+	blackJack.gameTable.display = function() {
+	alert("Welcome to the blackJack table!");
+	alert("You begin with 2000 credits in dollars.");
+	alert("Input commands:\n<B>Change bet\n<Empty input> draw card\n<SPACE> to settle with the hand");
 
-	
-	blackJack.table.playerHand = [];
-	blackJack.table.computerHand = [];
+	//console.log("Welcome to the blackJack table!");
+	//console.log("You begin with 2000 credits in dollars.");
+	//console.log("Input commands:\n\t\t\t\t\t\t<B>Change bet\n\t\t\t\t\t\t<Empty input> draw card\n\t\t\t\t\t\t<SPACE> to settle with the hand");
+	blackJack.deckFactory();
 
-
-	//playerbam.push(blackJack.table.playerDeck.pop());
-	blackJack.table.playerHand.push(blackJack.table.playerDeck.pop());
-	console.log(blackJack.table.playerHand[0].cardName);
-
-	blackJack.table.playerHand.sum = blackJack.table.playerHand[0].cardValue;
-
-	blackJack.table.computerHand.push(blackJack.table.playerDeck.pop());
-	console.log("The bank draws: " + blackJack.table.computerHand[0].cardName);
-
-	blackJack.table.computerHand.sum = blackJack.table.computerHand[0].cardValue;
-
-
+};
 //	blackJack.table.playerHand = blackJack.table.playerDeck.pop();
 //	console.log("You pulled card: ", blackJack.table.playerHand.cardName, " value ", blackJack.table.playerHand.cardValue);
 //	blackJack.table.playerHand.push(blackJack.table.playerDeck.pop());
-	//console.log("You pulled card: ", blackJack.table.playerHand.cardName, " value ", blackJack.table.playerHand.cardValue);
+//	console.log("You pulled card: ", blackJack.table.playerHand.cardName, " value ", blackJack.table.playerHand.cardValue);
 
-
-}
