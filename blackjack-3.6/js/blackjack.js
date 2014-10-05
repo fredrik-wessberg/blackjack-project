@@ -10,19 +10,28 @@ blackjack.firstTime = function() {
 };
 
 blackjack.start = function() {
+	if(blackjack.choice==='quit') {
+		return 0;
+	}
 	blackjack.playerHand = [];
 	blackjack.dealerHand = [];
 	blackjack.playerScore = 0;
 	blackjack.dealerScore = 0;
+	blackjack.turn+=1;
 
-	blackjack.choice = '';
 	
-	if(confirm("C)ontinue or Q)uit")) {
+	
+	if(blackjack.turn % 5 === 0 && blackjack.turn!=1) {
+		if(confirm("Continue or Quit")) {
 		blackjack.createDeck();
 		blackjack.player();
 	}
 	else 
+		blackjack.choice = 'quit';
 		return 0;
+	}
+	blackjack.createDeck();
+	blackjack.player();
 };
 
 
@@ -65,7 +74,7 @@ blackjack.player = function() {
 	}
 	
 	blackjack.addScore(1,2);
-	console.log("your score: "+blackjack.playerScore);
+	console.log("Your score: "+blackjack.playerScore);
 
 	if(blackjack.playerScore>=21) {
 		blackjack.win();
