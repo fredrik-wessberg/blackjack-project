@@ -3,18 +3,21 @@ var blackjack= {};
 blackjack.firstTime = function() {
 	blackjack.credits = 2000;
 	blackjack.bet = prompt("How much to bet each run: ");
-	
-	blackjack.playerHand = [];
-	blackjack.dealerHand = [];
+	blackjack.bet = parseInt(blackjack.bet,10);;
+	blackjack.turn = 0;
+
 	blackjack.start();
 };
 
 blackjack.start = function() {
+	blackjack.playerHand = [];
+	blackjack.dealerHand = [];
 	blackjack.playerScore = 0;
+	blackjack.dealerScore = 0;
+
 	blackjack.choice = '';
-	blackjack.choice = prompt("C)ontinue or Q)uit")
-	blackjack.choice = blackjack.choice.toLowerCase();
-	if(blackjack.choice == 'c') {
+	
+	if(confirm("C)ontinue or Q)uit")) {
 		blackjack.createDeck();
 		blackjack.player();
 	}
@@ -39,6 +42,7 @@ blackjack.createDeck = function() {
 			blackjack.deck.push(blackjack.card);
 		}
 	}
+	blackjack.deck = _.shuffle(blackjack.deck);
 };
 
 
@@ -50,8 +54,8 @@ blackjack.drawCard = function(isHuman, times) {
 		}
 	}
 	else {
-		blackjack.dealer.push(blackjack.deck.pop());
-		console.log("The bank gets: " + blackjack.dealerHand[blackjack.dealerHand.length-1].name);
+		blackjack.dealerHand.push(blackjack.deck.pop());
+		console.log("The house gets: " + blackjack.dealerHand[blackjack.dealerHand.length-1].name);
 	}
 };
 
@@ -70,18 +74,19 @@ blackjack.player = function() {
 		while(confirm("Hit or stand?")) {
 			blackjack.drawCard(1,1);
 			blackjack.addScore(1,1);
+			console.log("Your score: "+blackjack.playerScore)
 			if(blackjack.playerScore > 21)
 				blackjack.loose();
 			if(blackjack.playerScore == 21)
 				blackjack.win();
 		}
-		blackjack.dealer();
+	blackjack.dealer();
 	}
 };
 
 
 blackjack.addScore = function(isHuman,times) {
-	if(isHuman) {
+	if(isHuman===1) {
 		if(times == 2) {
 				for(x = 0; x < times;x++) 
 					blackjack.playerScore += blackjack.playerHand[x].numericValue;
@@ -95,8 +100,9 @@ blackjack.addScore = function(isHuman,times) {
 
 
 blackjack.win = function() {
-	console.log("You win!");
 	blackjack.credits+=blackjack.bet;
+	console.log("You win!");
+	console.log("You have: "+ blackjack.credits);
 	blackjack.start();
 };
 
@@ -108,15 +114,23 @@ blackjack.loose = function() {
 
 blackjack.dealer = function() {
 	while(blackjack.dealerScore < 17) {
+		
 		blackjack.drawCard(0);
 		blackjack.addScore(0);
+		console.log("House score is:"+blackjack.dealerScore);
 	}
-	if(blackjack.dealerScore == 21)
+	if(blackjack.dealerScore == 21) {
+		console.log("House gets Blackjack!");
 		blackjack.loose();
+	}
 	else if(blackjack.dealerScore > 21) 
 		blackjack.win();
 	else if(blackjack.dealerScore > blackjack.playerScore)
 		blackjack.loose();
+	else if(blackjack.dealerScore === blackjack.playerScore) {
+		console.log("Draw!")
+		blackjack.win();
+	}
 	else
 		blackjack.win();
 };
