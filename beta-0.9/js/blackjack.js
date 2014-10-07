@@ -15,9 +15,10 @@ blackjack.firstTime = function() {
 };
 
 blackjack.start = function() {
-	while(blackjack.credits <= 0 || blackjack.choice!='quit') {
+	while(blackjack.credits > 0 || blackjack.choice!='quit') {
 		if(blackjack.choice==='quit') {
 			return 0;
+			break;
 		}
 		
 		blackjack.dealerHand = [];
@@ -72,8 +73,7 @@ blackjack.drawCard = function(isHuman, times) {
 		blackjack.dealerHand.push(blackjack.deck.pop());
 		console.log("House draws: "+blackjack.dealerHand[blackjack.dealerHand.length-1].name)
 		if(blackjack.dealerHand[blackjack.dealerHand.length-1].numericValue===11) {
-			console.log("The house gets: " + blackjack.dealerHand[blackjack.dealerHand.length-1].name);
-			blackjack.dealerAces+=1;
+			blackjack.dealerAces++;
 		}
 	}
 };
@@ -156,8 +156,8 @@ blackjack.dealer = function() {
 			blackjack.dealerScore-=10;
 			blackjack.dealerAces--;
 		}
-		else
-			blackjack.win();
+	else
+		blackjack.win();
 	else if(blackjack.dealerScore > blackjack.playerScore)
 		blackjack.loose();
 	else if(blackjack.dealerScore === blackjack.playerScore) {
