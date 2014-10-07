@@ -64,7 +64,6 @@ blackjack.drawCard = function(isHuman, times) {
 			blackjack.playerHand.push(blackjack.deck.pop());
 			console.log("You are dealt: " + blackjack.playerHand[blackjack.playerHand.length-1].name);
 			if(blackjack.playerHand[blackjack.playerHand.length-1].numericValue===11) {
-				console.log("Player got ace-value conducted to variable!");
 				blackjack.playerAces++;
 			}
 		}
