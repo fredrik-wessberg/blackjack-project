@@ -11,6 +11,8 @@ blackjack.game = function(reset) {
 	//Reseting values
 	blackjack.playerHand = [];
 	blackjack.playerScore = 0;
+	blackjack.dealerScore = 0;
+	blackjack.dealerHand = [];
 
 	$('.win').hide();
 	$('.loose').hide();
@@ -67,7 +69,7 @@ blackjack.dealCards = function() {
 	blackjack.dealerHand = [];
 	blackjack.playerAces = 0;
 	blackjack.dealerAces = 0;
-
+	
 	blackjack.drawCard(1);
 	blackjack.drawCard(1);
 
@@ -85,8 +87,13 @@ blackjack.drawCard = function(isHuman) {
 
 blackjack.showScores = function() {
 	$('.score').show();
+	$('.dScore').show();
+
 	blackjack.playerScore = 0;
 	blackjack.dealerScore = 0;
+
+	blackjack.dealerAces = 0;
+	blackjack.playerAces = 0;
 
 	//Player score
 	blackjack.playerCards = '';
@@ -115,10 +122,11 @@ blackjack.showScores = function() {
 		blackjack.win();
 	if(blackjack.playerScore > 21)
 		blackjack.loose();
+	if(blackjack.dealerScore > 21)
+		blackjack.win();
 
 	//Dealer score
 	blackjack.dealerHand.forEach(function (card) {
-		blackjack.dealerScore+=card.numericValue;
 		if(card.numericValue===11)
 			blackjack.dealerAces++;
 		blackjack.dealerScore+=card.numericValue;
@@ -126,35 +134,50 @@ blackjack.showScores = function() {
 			blackjack.dealerScore-=10;
 			blackjack.dealerAces--;
 		}
+	//Dealer cards
+		blackjack.dealerHand.forEach(function (card) {
+			blackjack.dealerCards+=card.name + ' ';
 	});
+		$('.dCards').text(blackjack.dealerCards);
+		$('.dScore').text('Dealer score: '+blackjack.dealerScore);
+	});
+};
 
-	blackjack.win = function() {
-		blackjack.playerCredit = parseInt(blackjack.playerCredit) 
-		blackjack.playerBet = parseInt(blackjack.playerBet);
-		blackjack.playerCredit += blackjack.playerBet;
+blackjack.win = function() {
+	blackjack.playerCredit = parseInt(blackjack.playerCredit) 
+	blackjack.playerBet = parseInt(blackjack.playerBet);
+	blackjack.playerCredit += blackjack.playerBet;
 		
-		$('.hit').hide();
-		$('.win').show();
-		$('.deal').show();
-	};
+	$('.hit').hide();
+	$('.stand').hide();
+	$('.win').show();
+	$('.deal').show();
+};
 
-	blackjack.loose = function() {
-		blackjack.playerCredit = parseInt(blackjack.playerCredit) 
-		blackjack.playerBet = parseInt(blackjack.playerBet);
-		blackjack.playerCredit -= blackjack.playerBet;
-		//$('.status').show();
-		if(blackjack.playerCredit <= 0) {
-			alert("Game over!");
-			//$('.deal').hide();
-			//$('.stand').hide();
-			//$('.cText').hide();
-			//$('.cards').hide();
-			//$('.hit').hide();
-		}
-		$('.hit').hide();
-		$('.loose').show();
-		$('.deal').show();
-	};
+blackjack.loose = function() {
+	blackjack.playerCredit = parseInt(blackjack.playerCredit) 
+	blackjack.playerBet = parseInt(blackjack.playerBet);
+	blackjack.playerCredit -= blackjack.playerBet;
+	//$('.status').show();
+	if(blackjack.playerCredit <= 0) {
+		alert("Game over!");
+	}
+	$('.hit').hide();
+	$('.loose').show();
+	$('.deal').show();
+};
+
+
+blackjack.housePlay = function() {
+	while(blackjack.dealerScore < 17) {
+		blackjack.drawCard(0);
+		blackjack.showScores();
+	}
+	if(blackjack.dealerScore > blackjack.playerScore && blackjack.dealerScore <=21)
+		blackjack.loose();
+	else
+		blackjack.win();
+
 }
 
 
